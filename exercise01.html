@@ -25,13 +25,17 @@
 
                     if (pw.value.length < 8 || pwv.value.length < 8)
                     {
-                        log.innerHTML += "Password must be at least 8 characters"
+                        log.innerHTML += "Password must be at least 8 characters.<br/>"
                     }
 
                     if (pw.value != pwv.value)
                     {
-                        log.innerHTML += "Passwords do not match";
+                        log.innerHTML += "Passwords do not match.";
                     }
+
+                    if (log.innerHTML.length == 0)
+                    {
+                        log.innerHTML += "Passwords are of valid length and matching."}
                 }
                 
                 document.getElementById("submit").addEventListener("click", clickCb, false);
