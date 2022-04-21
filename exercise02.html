@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 02</title>
+        <link rel="stylesheet" href="./style.css" type="text/css">
+    </head>
+    <body class="e02">
+        <img id="s_img" class="e02" src=""/>
+        <div id="buttons">
+            <a id="bL" class="buttons button__arrow--left" href="javascript:void(0)">&laquo; Previous</a> | 
+            <a id="bR" class="buttons button__arrow--right" href="javascript:void(0)">Next &raquo;</a>
+        </div>
+        <footer>
+            <a href="./index.html">&laquo; Back to Index</a>
+            <script>
+            const img_stem = "./assets/";
+            const imgs = [
+                "6633764-1-1024x654.jpg",
+                "e2qrkd4iaml81.jpg",
+                "First_F-35_headed_for_USAF_service.jpg",
+                "amazon-suggestions.png",
+                "lntpwumcium81.jpg"
+            ];
+            
+            let bl = document.getElementById("bL");
+            let br = document.getElementById("bR");
+            let img= document.getElementById("s_img");
+
+            function buttonCb( e )
+            {
+                let imgCt = imgs.length;
+                let imgNo = imgs.indexOf(img.getAttribute("src").substr(img_stem.length));
+                let newImgNo = imgNo;
+
+                switch (e.target.id)
+                {
+                    case "bL":
+                        newImgNo--;
+                        if (newImgNo < 0)
+                            newImgNo = imgCt-1;
+                        break;
+                    case "bR": 
+                        newImgNo++;
+                        if (newImgNo >= imgCt)
+                            newImgNo = 0;
+                }
+
+                img.setAttribute("src", img_stem + imgs[newImgNo]);
+                return;
+            }
+
+            img.setAttribute("src", img_stem + imgs[0]);
+
+            [bl, br].forEach((button) => {
+                button.addEventListener("click", buttonCb, false);
+            });
+            </script>
+        </footer>
+    </body>
+</html>

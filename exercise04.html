@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 01</title>
+    </head>
+    <body>
+        <p id="focus">This is some dummy text! Modify me using the values below.</p>
+        <p><b>Color Values in RGB format. Border width in pixels.</b></p>
+
+        <h2>Border</h2> 
+        <p><label for="r1">red: </label><input name="r1" id="r1" type="number" value="30"/></p>
+        <p><label for="g1">green: </label><input name="g1" id="g1" type="number" value="128"/></p>
+        <p><label for="b1">blue: </label><input name="b1" id="b1" type="number" value="255"/></p>
+        <p><label for="w">width: </label><input name="w" id="w" type="number" value="1"/></p>
+
+        <h2>Background</h2> 
+        <p><label for="r2">red: </label><input name="r2" id="r2" type="input" value="255"/></p>
+        <p><label for="g2">green: </label><input name="g2" id="g2" type="input" value="255"/></p>
+        <p><label for="b2">blue: </label><input name="b2" id="b2" type="input" value="255"/></p>
+
+        <button id="submit">Apply</button>
+        <p>&nbsp;</p>
+        <footer>
+            <a href="./index.html">&laquo; Back to Index</a>
+            <script>
+                let target = document.getElementById("focus");
+
+                let border = {
+                    r: document.getElementById("r1"),
+                    g: document.getElementById("g1"),
+                    b: document.getElementById("b1"),
+                    w: document.getElementById("w")
+                };
+
+                let background = {
+                    r: document.getElementById("r2"),
+                    g: document.getElementById("g2"),
+                    b: document.getElementById("b2")
+                };
+
+                let submit = document.getElementById("submit");
+
+                function applyCb( e )
+                {
+                    let border_w = 0;
+                    let border_rgb = [];
+                    let background_rgb = [];
+                    let i = 0;
+
+                    ['r', 'g', 'b'].forEach((color) => {
+
+                        border_rgb[i] = Math.min( border[color].value, 255 );
+                        background_rgb[i] = Math.min( background[color].value, 255);
+
+                        if (border_rgb[i] < 0) border_rgb[i] = 0;
+                        if (background_rgb[i] < 0) background_rgb[i] = 0;
+
+                        i++;
+                    });
+                    border_w = border['w'].value;
+
+                    let border_color = "rgb(" 
+                                    + border_rgb[0] + ',' 
+                                    + border_rgb[1] + ','
+                                    + border_rgb[2] + ');'
+
+                    let background_color = "rgb(" 
+                                    + background_rgb[0] + ',' 
+                                    + background_rgb[1] + ','
+                                    + background_rgb[2] + ');'
+
+                    // good way
+                    // target.setAttribute("style", 
+                    //    "border: "+border_w + 'px solid ' + border_color + '; ' + 
+                    //    "background-color: " + background_color ); 
+
+                    // required way
+                    target.style.backgroundColor = background_color.substr(0, background_color.length-1);
+                    target.style.border = border_w + 'px solid ' + border_color.substr(0, border_color.length-1);
+                }
+
+                submit.addEventListener("click", applyCb, false);
+            </script>
+        </footer>
+    </body>
+</html>

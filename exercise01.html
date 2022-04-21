@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 01</title>
+    </head>
+    <body>
+        <p><label for="pw">Password: </label><input name="pw" id="pw" type="password" minlength="8" required/></p>
+        <p><label for="pw-v">Enter Password Again: </label><input name="pwv" id="pwv" type="password" minlength="8" required/></p>
+
+        <p id="log"></p>
+
+        <button id="submit">Validate</button>
+        <footer>
+            <a href="./index.html"
+            <script type="text/javascript">
+                function clickCb( e )
+                {
+                    let pw = document.getElementById("pw");
+                    let pwv = document.getElementById("pwv");
+                    let log = document.getElementById("log");
+
+                    log.innerHTML = "";
+
+                    if (pw.value.length < 8 || pwv.value.length < 8)
+                    {
+                        log.innerHTML += "Password must be at least 8 characters"
+                    }
+
+                    if (pw.value != pwv.value)
+                    {
+                        log.innerHTML += "Passwords do not match";
+                    }
+                }
+                
+                document.getElementById("submit").addEventListener("click", clickCb, false);
+            </script>
+        </footer>
+    </body>
+</html>

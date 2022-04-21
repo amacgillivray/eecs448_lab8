@@ -1,0 +1,115 @@
+body.e02 {
+    padding: 45px 45px;
+    display: flex;
+    flex-direction: column;
+    width: 850px;
+    margin: auto;
+    align-items: center;
+    justify-content: flex-start;
+}
+img.e02 {
+    z-index: -1;
+    max-width: 100%;
+    width: 800px;
+    height: 450px;
+    padding-bottom: 15px;
+}
+.buttons {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-decoration: none;
+    color: #000;
+}
+.buttons:hover {
+    color: #007ade;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color: #efefef;
+    font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif
+}
+section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+}
+img {
+    display: block;
+    max-width: 68%;
+    width: auto;
+    height: auto;
+    margin: auto;
+    z-index: 3;
+    margin: 50px auto;
+}
+article {
+    width: 68%;
+    padding: 15px 30px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0px 18px 18px hsla(0, 0%, 0%, 0.5);
+}
+.aside {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.aside-s {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 1;
+    margin-left: 30px;
+}
+
+.aside.tight {
+    flex-direction: column;
+    padding: 200px;
+    font-size: 1.8em;
+    align-items: flex-start;
+}
+caption {
+    color: #777;
+    font-size: 0.85em;
+    font-style: italic;
+    padding: 5px;
+}
+
+.colorblock.light {
+    color: #f8fafe;
+}
+blockquote {
+    font-size: 3em;
+}
+.tricolore {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-evenly;
+}
+.tricolore div {
+    display:block; 
+    width:30%; 
+    height: auto;
+}
+
+#bgimg {
+    background-image: url(./assets/5b266b5f95ce1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    background-position: 0 -100px;
+}
+
+#bgimg .aside {
+    background-color: hsla(0, 0%, 0%, 0.34);
+    transition: 0.2s;
+}
+
+#bgimg .aside:hover {
+    opacity: 0;
+}
