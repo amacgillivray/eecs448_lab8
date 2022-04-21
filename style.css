@@ -1,4 +1,6 @@
-body.e02 {
+body.e01,
+body.e02,
+body.e04 {
     padding: 45px 45px;
     display: flex;
     flex-direction: column;
@@ -72,7 +74,7 @@ article {
     font-size: 1.8em;
     align-items: flex-start;
 }
-caption {
+.caption {
     color: #777;
     font-size: 0.85em;
     font-style: italic;
